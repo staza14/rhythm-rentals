@@ -1,0 +1,13 @@
+<h1>Create a new add</h1>
+
+<div class="container">
+<%= simple_form_for @vinyl do |f| %>
+  <%= f.input :album_title %>
+  <%= f.input :cover_image %>
+  <%= f.input :release_year %>
+  <%= f.input :genre %>
+  <%= f.input :songs %>
+  <%= f.submit %>
+<% end %>
+
+</div>

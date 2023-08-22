@@ -1,5 +1,6 @@
 class Vinyl < ApplicationRecord
   belongs_to :user
+  #has_one_attached :cover_image
   has_many :bookings
   validates :album_title, presence: true
   validates :cover_image, presence: true

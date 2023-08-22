@@ -3,14 +3,14 @@
 
 
 <ul>
-<% @vinyls.each do |vinyls| %>
+<% @vinyls.each do |vinyl| %>
 
 <li>
-<%=  vinyl.title %>
-<%  end %>
+<%=  link_to vinyl.album_title, vinyl_path(vinyl)%>
+<% end %>
 </li>
 
-
-<% end %>
-
 </ul>
+
+
+<%= link_to "Create an offer", new_vinyl_path %>
