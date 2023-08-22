@@ -5,6 +5,8 @@
 <% @vinyls.each do |vinyl| %>
 
 <%=  vinyl.album_title%>
+<p><%= link_to "🗑️", booking_path(@bookings), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></p>
+<p><%= link_to "Modify the add", edit_vinyl_path(vinyl)%></p>
 <% end %>
 
 </div>
