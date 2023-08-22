@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   # root "articles#index"
   # resources :users, only: [:show]
 
-  resources :vinyls
+  resources :vinyls do
+    resources :bookings
+  end
   get '/dashboard', to: 'users#dashboard'
 end

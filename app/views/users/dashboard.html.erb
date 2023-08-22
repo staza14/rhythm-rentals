@@ -1,4 +1,18 @@
 <h1>hello <%= current_user.first_name %></h1>
 
+<div class="d-flex justify-content-center">
+<% @vinyls.each do |vinyl| %>
+
+<%=  link_to vinyl.album_title, vinyl_path(vinyl)%>
+<% end %>
+
+
+<% @bookings.each do |booking| %>
+
+<%=  booking.id%>
+<% end %>
+
+
+</div>
 
 <p><%= link_to "Create an offer", new_vinyl_path %></p>
