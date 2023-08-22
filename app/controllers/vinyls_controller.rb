@@ -53,5 +53,4 @@ private
   def vinyls_params
     params.require(:vinyl).permit(:album_title, :cover_image, :release_year, :genre, :songs)
   end
-
 end
