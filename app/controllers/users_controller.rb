@@ -8,8 +8,5 @@ class UsersController < ApplicationController
     # @bookings = Booking.where(user_id: current_user)
     @bookings = current_user.bookings
     @vinyls = current_user.vinyls
-
-
-
   end
 end

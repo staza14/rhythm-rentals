@@ -15,6 +15,8 @@ class BookingsController < ApplicationController
   def destroy
   end
 
+
+
   private
 
   def set_vinyl
