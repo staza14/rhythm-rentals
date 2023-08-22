@@ -1,4 +1,13 @@
-<h1><%= @vinyl.album_title %></h1>
+<div class="container">
+
+<h1 class ="d-flex justify-content-center"><%= @vinyl.album_title %></h1>
 
 
 <%= @vinyl.songs %>
+
+<br>
+<br>
+<p><%= link_to "🗑️", vinyl_path(@vinyl), data: {turbo_method: :delete} %></p>
+
+
+</div>

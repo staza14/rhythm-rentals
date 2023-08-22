@@ -18,8 +18,18 @@ def create
   if @vinyl.save
     redirect_to vinyls_path
   else
-    redirect_to new_vinyl_path
+    redirect_to vinyl_path
   end
+end
+
+def destroy
+    @vinyl = Vinyl.find(params[:id])
+    @vinyl.user = User.first
+    if @vinyl.destroy
+      redirect_to vinyls_path(@vinyl)
+    else
+      redirect_to
+    end
 end
 
 private
