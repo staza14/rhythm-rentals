@@ -1,6 +1,6 @@
 
 <div class="container">
-  <h1>All the vinyls</h1>
+  <h1 class ="d-flex justify-content-center">All the vinyls</h1>
 
   <div class="row">
     <% @vinyls.each do |vinyl| %>
@@ -17,4 +17,4 @@
   </div>
 
 <%= link_to "Create an offer", new_vinyl_path, class: "link" %>
-</div>
+

@@ -1,0 +1,10 @@
+<h1>Do you want to book this vinyl</h1>
+
+<div class="container">
+<%= simple_form_for([@vinyl, @booking]) do |f| %>
+  <%= f.input :begin_date %>
+  <%= f.input :end_date %>
+  <%= f.submit %>
+<% end %>
+
+</div>
