@@ -4,6 +4,11 @@ class UsersController < ApplicationController
   end
 
   def dashboard
-    @bookings = Booking.where(user_id: current_user)
+    # @user = current_user
+    # @bookings = Booking.where(user_id: current_user)
+    @bookings = current_user.bookings
+
+
+
   end
 end
