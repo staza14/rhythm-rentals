@@ -2,14 +2,14 @@
 <div class="container">
   <h1 class ="d-flex justify-content-center">All the vinyls</h1>
 
-  <div class="row">
+  <div class="row justify-content-center">
     <% @vinyls.each do |vinyl| %>
-      <div class="col-4">
+      <div class="product-card col-4 px-0 m-5">
         <div class= "card-body">
           <%= image_tag  vinyl.cover_image, class:"index-image"%>
-          <h5 class="card-title"><%= vinyl.album_title %></h5>
-          <p class="card-text"><%= vinyl.artist %>.</p>
-          <p class="card-text">available from -<%= vinyl.user.first_name %>.</p>
+          <h5 class="card-title py-2"><%= vinyl.album_title %></h5>
+          <p class="card-text"> By: <%= vinyl.artist %></p>
+          <p class="card-text">available from - <strong><%= vinyl.user.first_name %></strong></p>
           <%=  link_to "see more", vinyl_path(vinyl), class:"text-deoration-none"%>
         </div>
       </div>
@@ -17,4 +17,3 @@
   </div>
 
 <%= link_to "Create an offer", new_vinyl_path, class: "link" %>
-

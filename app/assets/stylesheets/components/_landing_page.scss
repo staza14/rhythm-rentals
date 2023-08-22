@@ -1,0 +1,14 @@
+.landing-page{
+  background-image: url("landing-page.png");
+  background-size: cover;
+  height: 800px;
+  position:relative
+
+}
+.landing-page h1{
+  font-family: 'Lora', serif;
+  font-size:250%;
+  position: absolute;
+  bottom : 10px;
+  right: 10px;
+}
