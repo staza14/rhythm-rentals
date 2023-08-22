@@ -22,6 +22,7 @@ def create
   end
 end
 
+# For estroy a vinyl
 def destroy
     @vinyl = Vinyl.find(params[:id])
     @vinyl.user = User.first
