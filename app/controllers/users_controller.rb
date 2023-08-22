@@ -7,6 +7,7 @@ class UsersController < ApplicationController
     # @user = current_user
     # @bookings = Booking.where(user_id: current_user)
     @bookings = current_user.bookings
+    @vinyls = current_user.vinyls
 
 
 

@@ -7,6 +7,7 @@ end
 
 def show
   @vinyl = Vinyl.find(params[:id])
+  @booking = Booking.new
 end
 
 def new
