@@ -10,9 +10,23 @@ user_one = User.create(
   email: "visitor@lewagon.com",
   password: "123456789", first_name: "Heloise", last_name: "Leblant", user_name: "helolo")
 
+  user_one = User.create(
+    email: "visitor2@lewagon.com",
+    password: "123456789", first_name: "Ollie", last_name: "Pugh", user_name: "Broccoli")
+
 
 Vinyl.create(
   album_title: "Born to die",
+  cover_image: "https://d1c4rk9le5opln.cloudfront.net/c89ec7865567c43696a363efe83be0fb.jpg",
+  release_year: Date.new(2009,9,1),
+  genre: "pop",
+  songs: "Video Games, Born To die, Blue Jeans, National Anthem",
+  user_id: user_one.id
+)
+
+
+Vinyl.create(
+  album_title: "Ultraviolence",
   cover_image: "https://d1c4rk9le5opln.cloudfront.net/c89ec7865567c43696a363efe83be0fb.jpg",
   release_year: Date.new(2009,9,1),
   genre: "pop",
