@@ -22,6 +22,19 @@ def create
   end
 end
 
+def edit
+  @vinyl = Vinyl.find(params[:id])
+end
+
+def update
+  @vinyl = Vinyl.find(params[:id])
+  if @vinyl.update(vinyls_params)
+  redirect_to vinyls_path(@vinyl)
+  else
+  redirect_to
+  end
+end
+
 # For estroy a vinyl
 def destroy
     @vinyl = Vinyl.find(params[:id])
