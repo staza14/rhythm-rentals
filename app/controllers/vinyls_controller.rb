@@ -15,7 +15,7 @@ end
 
 def create
   @vinyl = Vinyl.new(vinyls_params)
-  @vinyl.user = User.first #current_user instead
+  @vinyl.user = current_user
   if @vinyl.save
     redirect_to vinyls_path
   else
