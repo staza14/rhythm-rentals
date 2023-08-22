@@ -7,9 +7,12 @@ class BookingsController < ApplicationController
   def create
     @booking = Booking.new(bookings_params)
     @booking.vinyl_id = @vinyl.id
-    @booking.save
+    @booking.user_id = current_user.id
 
-    redirect_to dashboard_path(@current_user)
+    if @booking.save
+        redirect_to dashboard_path(@current_user)
+    else
+    end
   end
 
   def destroy
@@ -22,6 +25,6 @@ class BookingsController < ApplicationController
   end
 
   def bookings_params
-    params.require(:booking).permit(:begin_date, :end_date, :vinyl_id, :user_id)
+    params.require(:booking).permit(:begin_date, :end_date)
   end
 end
