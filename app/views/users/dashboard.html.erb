@@ -11,10 +11,10 @@
           <h5 class="card-title py-2"><%= vinyl.album_title %></h5>
          <p><%= link_to "🗑️", vinyl_path(vinyl), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></p>
           <p><%= link_to "Modify the add", edit_vinyl_path(vinyl)%></p>
-          <p><%= link_to "Create an offer", new_vinyl_path %></p>
         </div>
       </div>
     <% end %>
+    <p><%= link_to "Create an offer", new_vinyl_path %></p>
   </div>
 
 

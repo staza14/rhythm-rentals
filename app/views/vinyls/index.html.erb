@@ -9,7 +9,8 @@
           <%= image_tag  vinyl.cover_image, class:"index-image"%>
           <h5 class="card-title py-2"><%= vinyl.album_title %></h5>
           <p class="card-text"> By: <%= vinyl.artist %></p>
-          <p class="card-text">available from - <strong><%= vinyl.user.first_name %></strong></p>
+          <p class="card-text"> Price: <%= vinyl.price %> £</p>
+          <p class="card-text">Available from - <strong><%= vinyl.user.first_name %></strong></p>
           <%=  link_to "see more", vinyl_path(vinyl), class:"text-deoration-none"%>
         </div>
       </div>
