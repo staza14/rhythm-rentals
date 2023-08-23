@@ -6,7 +6,7 @@
    <%=  f.input :cover_image, as: :file %>
   <%= f.input :artist %>
   <%= f.input :release_year, discard_month: true %>
-  <%= f.input :genre %>
+  <%= f.select(:genre, ['Afro', 'Blues', 'Disco', 'Electro', 'Hip-Hop', 'Jazz', 'K-Pop', 'Metal', 'Pop', 'Rap', 'Rock'], {include_blank: "Select the genre"}) %>
   <%= f.input :songs %>
   <%= f.input :pickup_adress ,
   input_html: {data: {pickup_address_autocomplete_target: "address"}, class: "d-none"},
