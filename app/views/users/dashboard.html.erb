@@ -1,25 +1,35 @@
 <h1 class="d-flex justify-content-center">Hello <%= current_user.first_name %></h1>
 
-<h2>My vinyls</h2>
-<div>
-<% @vinyls.each do |vinyl| %>
 
-<%=  vinyl.album_title%>
-<p><%= link_to "🗑️", booking_path(@bookings), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></p>
-<p><%= link_to "Modify the add", edit_vinyl_path(vinyl)%></p>
-<% end %>
+
+<div class="row justify-content-center">
+<h2>My Vinyls</h2>
+    <% @vinyls.each do |vinyl| %>
+      <div class="product-card col-4 px-0 m-5">
+        <div class= "card-body">
+          <%= image_tag  vinyl.cover_image, class:"index-image"%>
+          <h5 class="card-title py-2"><%= vinyl.album_title %></h5>
+         <p><%= link_to "🗑️", vinyl_path(vinyl), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></p>
+          <p><%= link_to "Modify the add", edit_vinyl_path(vinyl)%></p>
+          <p><%= link_to "Create an offer", new_vinyl_path %></p>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
 
 </div>
+
+<div class="row justify-content-center">
 <h2>My Bookings</h2>
-<div>
-<% @bookings.each do |booking| %>
-<p>----------------------</p>
-<p><%= booking.vinyl.album_title %></p>
-<p><%= booking.begin_date%> to <%= booking.end_date %></p>
-<p><%= link_to "🗑️", booking_path(booking), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></p>
-<% end %>
-
-
-</div>
-
-<p><%= link_to "Create an offer", new_vinyl_path %></p>
+    <% @bookings.each do |booking| %>
+      <div class="product-card col-4 px-0 m-5">
+        <div class= "card-body">
+          <%= image_tag  booking.vinyl.cover_image, class:"index-image"%>
+          <h5 class="card-title py-2"><%= booking.vinyl.album_title %></h5>
+          <h6 class="card-title py-2"><%= booking.begin_date%> to <%= booking.end_date %></h6>
+          <p><%= link_to "🗑️", booking_path(booking), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></p>
+        </div>
+      </div>
+    <% end %>
+  </div>
