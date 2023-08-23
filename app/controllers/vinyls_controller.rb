@@ -8,7 +8,17 @@ end
 def show
   @vinyl = Vinyl.find(params[:id])
   @booking = Booking.new
-end
+
+  @vinyls= Vinyl.all
+  # The `geocoded` scope filters only vinyl with coordinates
+  @markers = @vinyls.geocoded.map do |vinyl|
+    {
+      lat: vinyl.latitude,
+      lng: vinyl.longitude,
+      marker_html: render_to_string(partial: "marker")
+    }
+    end
+  end
 
 def new
   @vinyl = Vinyl.new
@@ -18,9 +28,9 @@ def create
   @vinyl = Vinyl.new(vinyls_params)
   @vinyl.user = current_user
   if @vinyl.save
-    redirect_to vinyls_path
+    redirect_to vinyl_path(@vinyl)
   else
-    redirect_to vinyl_path
+    render :new, status: :unprocessable_entity
   end
 end
 
@@ -40,17 +50,17 @@ end
 # For estroy a vinyl
 def destroy
     @vinyl = Vinyl.find(params[:id])
-    @vinyl.user = User.first
+    # @vinyl.user = current_user
     if @vinyl.destroy
-      redirect_to vinyls_path(@vinyl)
+      redirect_to dashboard_path
     else
       redirect_to
     end
 end
 
-private
+  private
 
   def vinyls_params
-    params.require(:vinyl).permit(:album_title, :cover_image, :release_year, :genre, :songs)
+    params.require(:vinyl).permit(:album_title, :cover_image, :release_year, :genre, :songs, :artist, :pickup_adress, :price)
   end
 end
