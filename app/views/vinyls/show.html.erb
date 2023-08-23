@@ -1,11 +1,18 @@
-<div class="container">
+<div class="container justify-content-center">
+  <h1><%= @vinyl.album_title %></h1>
+  <div class="d-flex">
+    <%= cl_image_tag  @vinyl.cover_image.key, class:"show-page-image" %>
+    <div class="px-5">
+      <h4>Track list</h4>
+      <%= @vinyl.songs %>
+    </div>
 
-<h1 class ="d-flex justify-content-center"><%= @vinyl.album_title %></h1>
+  </div>
 
-
-<%= @vinyl.songs %>
-
-<p><%= link_to "Book Vinyl", new_vinyl_booking_path(@vinyl)%></p>
-
-
+  <div class="d-flex song-info mt-3">
+    <p> By: <%=@vinyl.artist%> • </p>
+    <p>  runs for <%=@vinyl.length%> minutes • </p>
+    <p>  released in <%=@vinyl.release_year%></p>
+  </div>
+  <p><%= link_to "Book Vinyl", new_vinyl_booking_path(@vinyl)%></p>
 </div>

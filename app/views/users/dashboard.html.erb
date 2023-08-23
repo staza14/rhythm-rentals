@@ -1,25 +1,29 @@
-<h1 class="d-flex justify-content-center">Hello <%= current_user.first_name %></h1>
-
-<h2>My vinyls</h2>
-<div>
-<% @vinyls.each do |vinyl| %>
-
-<%=  vinyl.album_title%>
-<p><%= link_to "🗑️", booking_path(@bookings), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></p>
-<p><%= link_to "Modify the add", edit_vinyl_path(vinyl)%></p>
-<% end %>
-
+<div class= "container">
+  <h1 class="d-flex justify-content-center">Hi <%= current_user.first_name %>,</h1>
+  <div>
+    <h1 class ="d-flex justify-content-center">All your vinyls</h1>
+      <div class="row justify-content-center">
+        <% @vinyls.each do |vinyl| %>
+          <div class="product-card col-4 px-0 m-5">
+            <div class= "card-body">
+              <%= link_to vinyl_path(vinyl), class: "link" do %>
+              <%= cl_image_tag  vinyl.cover_image.key, class:"index-image"%>
+              <% end %>
+              <h5 class="card-title py-2 px-3"><%= vinyl.album_title %></h5>
+              <p class="card-text px-3"> By: <%= vinyl.artist %></p>
+              <p class="card-text px-3 pb-2">available from - <strong><%= vinyl.user.first_name %></strong></p>
+            </div>
+          </div>
+        <% end %>
+        <p><%= link_to "Add another", new_vinyl_path %></p>
+    </div>
+  <h2>My Bookings</h2>
+  <div>
+    <% @bookings.each do |booking| %>
+    <p>----------------------</p>
+    <p><%= booking.vinyl.album_title %></p>
+    <p><%= booking.begin_date%> to <%= booking.end_date %></p>
+    <p><%= link_to "🗑️", booking_path(booking), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></p>
+    <% end %>
+  </div>
 </div>
-<h2>My Bookings</h2>
-<div>
-<% @bookings.each do |booking| %>
-<p>----------------------</p>
-<p><%= booking.vinyl.album_title %></p>
-<p><%= booking.begin_date%> to <%= booking.end_date %></p>
-<p><%= link_to "🗑️", booking_path(booking), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></p>
-<% end %>
-
-
-</div>
-
-<p><%= link_to "Create an offer", new_vinyl_path %></p>

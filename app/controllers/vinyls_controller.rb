@@ -18,9 +18,9 @@ def create
   @vinyl = Vinyl.new(vinyls_params)
   @vinyl.user = current_user
   if @vinyl.save
-    redirect_to vinyls_path
+    redirect_to vinyl_path(@vinyl)
   else
-    redirect_to vinyl_path
+    render :new, status: :unprocessable_entity
   end
 end
 
