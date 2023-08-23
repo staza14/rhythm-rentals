@@ -6,11 +6,12 @@
     <% @vinyls.each do |vinyl| %>
       <div class="product-card col-4 px-0 m-5">
         <div class= "card-body">
-          <%= image_tag  vinyl.cover_image, class:"index-image"%>
-          <h5 class="card-title py-2"><%= vinyl.album_title %></h5>
-          <p class="card-text"> By: <%= vinyl.artist %></p>
-          <p class="card-text">available from - <strong><%= vinyl.user.first_name %></strong></p>
-          <%=  link_to "see more", vinyl_path(vinyl), class:"text-deoration-none"%>
+          <%= link_to vinyl_path(vinyl), class: "link" do %>
+          <%= cl_image_tag  vinyl.cover_image.key, class:"index-image"%>
+          <% end %>
+          <h5 class="card-title py-2 px-3"><%= vinyl.album_title %></h5>
+          <p class="card-text px-3"> By: <%= vinyl.artist %></p>
+          <p class="card-text px-3 pb-2">available from - <strong><%= vinyl.user.first_name %></strong></p>
         </div>
       </div>
     <% end %>
