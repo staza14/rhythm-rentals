@@ -11,7 +11,7 @@
 # It's strongly recommended that you check this file into your version control system.
 
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_23_101715) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_23_113549) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -54,6 +54,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_23_101715) do
     t.string "pickup_adress"
     t.integer "length"
     t.string "artist"
+    t.float "price"
     t.float "latitude"
     t.float "longitude"
     t.index ["user_id"], name: "index_vinyls_on_user_id"
