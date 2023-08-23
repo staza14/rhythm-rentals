@@ -16,13 +16,12 @@
     </div>
   </div>
 
-
   <div class="d-flex">
     <div>
       <div class="d-flex song-info p-3">
         <p> By: <%=@vinyl.artist%> • </p>
         <p>  runs for <%=@vinyl.length%> minutes • </p>
-        <p>  released in <%=@vinyl.release_year%></p>
+        <p>  released in <%=@vinyl.release_year.year%></p>
       </div>
 
       <div data-controller="toggle" class="mt-5 container">
