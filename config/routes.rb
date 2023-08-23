@@ -8,6 +8,9 @@ Rails.application.routes.draw do
   # resources :users, only: [:show]
 
   resources :vinyls do
+    collection do
+      get :rock
+    end
     resources :bookings, except: [:destroy]
   end
   resources :bookings, only: [:destroy]
