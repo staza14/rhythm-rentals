@@ -13,4 +13,5 @@ Rails.application.routes.draw do
   resources :bookings, only: [:destroy]
 
   get '/dashboard', to: 'users#dashboard'
+  get '/vinyldashboard', to: 'users#vinyldashboard'
 end
