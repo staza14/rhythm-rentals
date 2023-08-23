@@ -8,7 +8,16 @@ end
 def show
   @vinyl = Vinyl.find(params[:id])
   @booking = Booking.new
-end
+
+  @vinyls= Vinyl.all
+  # The `geocoded` scope filters only vinyl with coordinates
+  @markers = @vinyls.geocoded.map do |vinyl|
+    {
+      lat: vinyl.latitude,
+      lng: vinyl.longitude
+    }
+    end
+  end
 
 def new
   @vinyl = Vinyl.new
@@ -48,7 +57,7 @@ def destroy
     end
 end
 
-private
+  private
 
   def vinyls_params
     params.require(:vinyl).permit(:album_title, :cover_image, :release_year, :genre, :songs)
