@@ -49,9 +49,9 @@ end
 # For estroy a vinyl
 def destroy
     @vinyl = Vinyl.find(params[:id])
-    @vinyl.user = User.first
+    # @vinyl.user = current_user
     if @vinyl.destroy
-      redirect_to vinyls_path(@vinyl)
+      redirect_to dashboard_path
     else
       redirect_to
     end

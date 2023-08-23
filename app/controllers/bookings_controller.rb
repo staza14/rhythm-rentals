@@ -7,16 +7,17 @@ class BookingsController < ApplicationController
   def create
     @booking = Booking.new(bookings_params)
     @booking.vinyl_id = @vinyl.id
+    @booking.user = current_user
     @booking.save
 
-    redirect_to dashboard_path(@current_user)
+    redirect_to dashboard_path
   end
 
   def destroy
     @booking = Booking.find(params[:id])
 
     if @booking.destroy
-      redirect_to dashboard_path(@current_user)
+      redirect_to dashboard_path
     else
     end
   end
