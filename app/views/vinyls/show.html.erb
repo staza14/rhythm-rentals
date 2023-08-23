@@ -1,33 +1,31 @@
 
 <div class="container justify-content-center">
-  <h1><%= @vinyl.album_title %></h1>
+
+  <h1 class="text-center"><%= @vinyl.album_title %></h1>
+
   <div class="d-flex">
-    <%= cl_image_tag  @vinyl.cover_image.key, class:"show-page-image" %>
-    <div class="px-5">
+    <%= cl_image_tag  @vinyl.cover_image.key, class:"show-page-image m-5" %>
+    <div>
       <h4>Track list</h4>
-      <%= @vinyl.songs %>
+      <ul>
+      <% track_list = @vinyl.songs.split(',') %>
+      <% track_list.each do |track|  %>
+        <li> <%= puts track %></li>
+      <% end  %>
+    </ul>
     </div>
-
   </div>
 
-  <div class="d-flex song-info mt-3">
-    <p> By: <%=@vinyl.artist%> • </p>
-    <p>  runs for <%=@vinyl.length%> minutes • </p>
-    <p>  released in <%=@vinyl.release_year.year%></p>
-  </div>
+  <div class="d-flex">
+    <div>
+      <div class="d-flex song-info p-3">
+        <p> By: <%=@vinyl.artist%> • </p>
+        <p>  runs for <%=@vinyl.length%> minutes • </p>
+        <p>  released in <%=@vinyl.release_year.year%></p>
+      </div>
 
-</div>
-
-
-<div class="container d-flex justify-content-center">
-  <div style="width: 100%; height: 600px;"
-    data-controller="map"
-    data-map-markers-value="<%= @markers.to_json %>"
-    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-  </div>
-
-    <div data-controller="toggle" class="mt-5 container">
-      <button data-action="click->toggle#fire" class="btn btn-outline-primary">Book this Vinyl</button>
+      <div data-controller="toggle" class="mt-5 container">
+        <button data-action="click->toggle#fire" class="booking-button p-3"><strong>Book this Vinyl</strong></button>
         <div data-toggle-target="togglableElement" class="d-none">
           <%= simple_form_for([@vinyl, @booking]) do |f| %>
             <%= f.input :begin_date, html5: true %>
@@ -35,5 +33,12 @@
             <%= f.submit %>
           <% end %>
         </div>
+      </div>
     </div>
+    <div class="rounded-3 m-5" style="width: 500px; height: 500px;"
+      data-controller="map"
+      data-map-markers-value="<%= @markers.to_json %>"
+      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
+  </div>
 </div>
