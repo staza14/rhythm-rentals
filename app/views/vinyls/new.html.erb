@@ -5,7 +5,7 @@
   <%= f.input :album_title %>
    <%=  f.input :cover_image, as: :file %>
   <%= f.input :artist %>
-  <%= f.input :release_year %>
+  <%= f.input :release_year, discard_month: true %>
   <%= f.select :genre, ["kpop","blues", "country","pop","rock","electronic","folk", "jazz", "r&b","metal", "soul","afrobeats", "classical", "house"]%>
   <%= f.input :songs %>
   <%= f.input :pickup_adress ,
