@@ -47,7 +47,7 @@ def update
   end
 end
 
-# For estroy a vinyl
+# For destroy a vinyl
 def destroy
     @vinyl = Vinyl.find(params[:id])
     # @vinyl.user = current_user
@@ -56,6 +56,10 @@ def destroy
     else
       redirect_to
     end
+end
+
+def rock
+  @vinyls = Vinyl.where(genre: "rock")
 end
 
   private

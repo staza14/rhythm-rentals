@@ -29,7 +29,7 @@ i = 1
    (8..16).to_a.sample.times{ songs << Faker::Book.title }
   album = Vinyl.new(
     album_title: Faker::Music.album,
-    genre: Faker::Music.genre,
+    genre: ["kpop","blues", "country","pop","rock","electronic","folk", "jazz", "r&b","metal", "soul","afrobeats", "classical", "house"].sample,
     artist: Faker::Music.band,
     release_year: Faker::Date.between(from: 2.days.ago, to: Date.today),
     length: (45..95).to_a.sample,
