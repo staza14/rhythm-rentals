@@ -14,7 +14,8 @@ def show
   @markers = @vinyls.geocoded.map do |vinyl|
     {
       lat: vinyl.latitude,
-      lng: vinyl.longitude
+      lng: vinyl.longitude,
+      marker_html: render_to_string(partial: "marker")
     }
     end
   end
