@@ -1,0 +1,15 @@
+.product-card {
+  width: 300px;
+  .index-image {
+    width: 100%;
+    height:300px;
+    object-fit: cover;
+    position: relative;
+  }
+}
+
+.slide-out-record {
+  width: 300px;
+  height: 300px;
+  position: absolute;
+}

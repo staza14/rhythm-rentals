@@ -8,7 +8,9 @@ Rails.application.routes.draw do
   # resources :users, only: [:show]
 
   resources :vinyls do
-    resources :bookings
+    resources :bookings, except: [:destroy]
   end
+  resources :bookings, only: [:destroy]
+
   get '/dashboard', to: 'users#dashboard'
 end
