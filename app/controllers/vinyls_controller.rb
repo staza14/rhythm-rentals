@@ -60,6 +60,6 @@ end
   private
 
   def vinyls_params
-    params.require(:vinyl).permit(:album_title, :cover_image, :release_year, :genre, :songs)
+    params.require(:vinyl).permit(:album_title, :cover_image, :release_year, :genre, :songs, :artist, :pickup_adress, :price)
   end
 end

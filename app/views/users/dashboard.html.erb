@@ -1,3 +1,4 @@
+
 <div class= "container">
   <h1 class="d-flex justify-content-center">Hi <%= current_user.first_name %>,</h1>
   <div>
@@ -19,6 +20,7 @@
         <% end %>
         <p><%= link_to "Add another", new_vinyl_path %></p>
     </div>
+
 <div class="row justify-content-center">
 <h2>My Bookings</h2>
     <% @bookings.each do |booking| %>
