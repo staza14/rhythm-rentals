@@ -35,7 +35,7 @@ i = 1
     length: (45..95).to_a.sample,
     songs: songs.join(","),
     pickup_adress: Faker::Address.full_address,
-    # cover_image: "covers/cover#{i}.png",
+    price: (5..15).to_a.sample,
     user_id: User.all.sample.id
   )
   file = File.open("app/assets/images/covers/cover#{i}.png")
