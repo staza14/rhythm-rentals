@@ -1,8 +1,8 @@
-<div class="navbar-container navbar-container-closed" id="mySidebar">
+<div class="navbar-container left-12" id="mySidebar">
 <%# take line out if not working %>
   <% if user_signed_in? %>
   <div class="navbar-container-children navbar-button navbar-container-closed">
-    <ul class="navbar-unordered-list">
+    <ul class="navbar-unordered-list navbar-container-closed">
       <%# Home Link %>
       <li class="navbar-list-item">
         <button class="navbar-button top-of-page">
@@ -19,7 +19,7 @@
   </div>
   <%# Vinyl overflow button %>
   <div class="navbar-container-children navbar-container-closed">
-    <div class="vinyl-div closebtn" onclick="closeNav()">
+    <div class="vinyl-div closebtn navbar-container-closed" onclick="openNav()">
       <div class="vinyl-image"></div>
     </div>
   </div>
@@ -41,7 +41,7 @@
   </div>
   <%# Vinyl overflow button %>
   <div class="navbar-container-children">
-    <div class="vinyl-div closebtn" onclick="closeNav()">
+    <div class="vinyl-div closebtn" onclick="openNav()">
       <div class="vinyl-image"></div>
     </div>
   </div>
@@ -58,46 +58,9 @@
   <% end %>
 </div>
 
-<div class="half-vinyl-div openbtn" id="clickable-vinyl" onclick="openNav()">
-  <div class="half-vinyl-image" id="clickable-vinyl" class="openbtn" onclick="openNav()"></div>
-</div>
-
 <script>
   function openNav() {
     navbar = document.getElementById("mySidebar")
-    vinyl = document.querySelector(".half-vinyl-div openbtn")
-    navbar.classList.remove('navbar-container-closed')
-    vinyl.classList.add("d-none")
-  }
-
-  function closeNav() {
-    navbar = document.getElementById("mySidebar")
-    navbar.classList.add('navbar-container-closed')
+    navbar.classList.toggle("left-12")
   }
 </script>
-
-
-
-<%# <script>
-  function openNav() {
-    document.getElementById("mySidebar").style.width = "12%";
-    document.getElementById("main").style.marginLeft = "12%";
-  }
-
-  function closeNav() {
-    document.getElementById("mySidebar").style.width = "0";
-    document.getElementById("main").style.marginLeft= "0";
-  }
-</script> %>
-
-<%# Javascript stuff %>
-
-<%# <div id="main">
-  <button class="openbtn" onclick="openNav()">
-    <div class="vinyl-button">
-    </div>
-    <img src="" alt="" class="vinyl-image">
-  </button>
-</div>
-
-<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a> %>
