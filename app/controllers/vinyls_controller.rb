@@ -62,9 +62,46 @@ def destroy
     end
 end
 
-def rock
-  @vinyls = Vinyl.where(genre: "rock")
+def pop
+  @vinyls = Vinyl.where(genre: "Pop")
 end
+
+def classical
+  @vinyls = Vinyl.where(genre: "Classical")
+end
+
+def jazz
+  @vinyls = Vinyl.where(genre: "Jazz")
+end
+
+def rock
+  @vinyls = Vinyl.where(genre: "Rock")
+end
+
+def afrobeat
+  @vinyls = Vinyl.where(genre: "Afrobeat")
+end
+
+def reggae
+  @vinyls = Vinyl.where(genre: "Reggae")
+end
+
+def hiphop
+  @vinyls = Vinyl.where(genre: "Hiphop")
+end
+
+def country
+  @vinyls = Vinyl.where(genre: "Country")
+end
+
+def metal
+  @vinyls = Vinyl.where(genre: "Metal")
+end
+
+def electronic
+  @vinyls = Vinyl.where(genre: "Electronic")
+end
+
 
   private
 

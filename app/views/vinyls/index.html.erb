@@ -1,7 +1,80 @@
 
 <div class="container">
-  <h1 class ="d-flex justify-content-center">All the vinyls</h1>
-  <%= link_to "rock albums", rock_vinyls_path %>
+  <h1 class ="d-flex justify-content-center"></h1>
+
+  <div class="genre-bar d-flex mt-4">
+
+    <div class="genre-icon">
+      <%= link_to pop_vinyls_path, class:"link" do %>
+        <%= image_tag(("genre-icons/microphone.png"), class:"icon")%>
+        <p>pop</p>
+      <% end %>
+    </div>
+
+    <div class="genre-icon">
+      <%= link_to classical_vinyls_path, class:"link" do %>
+        <%= image_tag(("genre-icons/conductor.png"), class:"icon")%>
+        <p>classical</p>
+      <%end  %>
+    </div>
+
+    <div class="genre-icon">
+      <%= link_to jazz_vinyls_path, class:"link" do %>
+        <%= image_tag(("genre-icons/saxophone.png"), class:"icon")%>
+        <p>jazz</p>
+      <%end  %>
+    </div>
+
+    <div class="genre-icon">
+      <%= link_to rock_vinyls_path, class:"link" do %>
+       <%= image_tag(("genre-icons/guitar.png"), class:"icon")%>
+        <p>rock</p>
+      <%end  %>
+    </div>
+
+    <div class="genre-icon">
+      <%= link_to afrobeat_vinyls_path, class:"link" do %>
+        <%= image_tag(("genre-icons/afrobeat.png"), class:"icon")%>
+        <p>afrobeats</p>
+      <%end  %>
+    </div>
+
+    <div class="genre-icon">
+      <%= link_to reggae_vinyls_path, class:"link" do %>
+        <%= image_tag(("genre-icons/reggae.png"), class:"icon")%>
+        <p>reggae</p>
+      <%end  %>
+    </div>
+
+    <div class="genre-icon">
+      <%= link_to hiphop_vinyls_path, class:"link" do %>
+        <%= image_tag(("genre-icons/singing.png"), class:"icon")%>
+        <p>hip hop</p>
+      <%end  %>
+    </div>
+
+    <div class="genre-icon">
+      <%= link_to country_vinyls_path, class:"link" do %>
+        <%= image_tag(("genre-icons/musician.png"), class:"icon")%>
+        <p>country</p>
+      <%end  %>
+    </div>
+
+    <div class="genre-icon">
+      <%= link_to metal_vinyls_path, class:"link" do %>
+        <%= image_tag(("genre-icons/metal.png"), class:"icon")%>
+        <p>metal</p>
+      <%end  %>
+    </div>
+
+    <div class="genre-icon">
+      <%= link_to electronic_vinyls_path, class:"link" do %>
+        <%= image_tag(("genre-icons/dj.png"), class:"icon")%>
+        <p>electronic</p>
+      <%end  %>
+    </div>
+
+  </div>
 
 <div class="row justify-content-center">
   <div class="col-sm-8 my-3">
