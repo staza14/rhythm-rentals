@@ -2,7 +2,7 @@
   <h1 class="d-flex justify-content-center">Hi <%= current_user.first_name %>,</h1>
   <div>
     <h2 class ="d-flex justify-content-center">All your vinyls</h2>
-    <p><%= link_to "Offering vinyl for rental", new_vinyl_path%></p>
+    <p><%= link_to "List another vinyl", new_vinyl_path%></p>
       <div class="row justify-content-center">
         <% @vinyls.each do |vinyl| %>
           <div class="product-card col-4 px-0 m-5">
@@ -13,8 +13,10 @@
               <h5 class="card-title py-2 px-3"><%= vinyl.album_title %></h5>
               <p class="card-text px-3"> By: <%= vinyl.artist %></p>
               <p class="card-text px-3 pb-2">available from - <strong><%= vinyl.user.first_name %></strong></p>
-              <p><%= link_to "Modify the add", edit_vinyl_path(vinyl)%></p>
-              <p><%= link_to "🗑️", vinyl_path(vinyl), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></p>
+              <p><%= link_to "Update listing", edit_vinyl_path(vinyl)%></p>
+              <%= link_to vinyl_path(vinyl), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
+              <%= image_tag(("recycle-bin.png"), class:"icon")%>
+              <% end %>
             </div>
 
           </div>
