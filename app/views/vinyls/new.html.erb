@@ -1,19 +1,19 @@
-<h1>Create a new add</h1>
+<h1>List a new vinyl</h1>
 
 <div class="container">
-<%= simple_form_for @vinyl do |f| %>
-  <%= f.input :album_title %>
-   <%=  f.input :cover_image, as: :file %>
-  <%= f.input :artist %>
-  <%= f.input :release_year, discard_month: true %>
-  <%= f.select :genre, ["Pop","Classical", "Jazz","Rock","Afrobeat","Reggae","Hiphop", "Country", "Metal","Electronic"]%>
-  <%= f.input :songs %>
-  <%= f.input :pickup_adress ,
-  input_html: {data: {pickup_address_autocomplete_target: "address"}, class: "d-none"},
-  wrapper_html: {data: {controller: "pickup-address-autocomplete",
-  pickup_address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}} %>
-  <%= f.input :price %>
-  <%= f.submit %>
-<% end %>
-
+  <%= simple_form_for @vinyl do |f| %>
+    <%= f.input :album_title %>
+    <%= f.input :artist %>
+    <%= f.input :release_year, discard_month: true %>
+    <%= f.input :length, placeholder: "30 min" %>
+    <%= f.select :genre, ["Pop","Classical", "Jazz","Rock","Afrobeat","Reggae","Hiphop", "Country", "Metal","Electronic"]%>
+    <%= f.input :songs %>
+    <%= f.input :pickup_adress ,
+    input_html: {data: {pickup_address_autocomplete_target: "address"}, class: "d-none"},
+    wrapper_html: {data: {controller: "pickup-address-autocomplete",
+    pickup_address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}} %>
+    <%=  f.input :cover_image, as: :file %>
+    <%= f.input :price %>
+    <%= f.submit %>
+  <% end %>
 </div>
