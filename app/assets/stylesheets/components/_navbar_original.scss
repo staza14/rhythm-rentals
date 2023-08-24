@@ -1,0 +1,128 @@
+.navbar-lewagon {
+  justify-content: space-between;
+  background: white;
+}
+
+.navbar-lewagon .navbar-collapse {
+  flex-grow: 0;
+}
+
+.navbar-lewagon .navbar-brand img {
+  width: 40px;
+}
+
+// Side Nav
+.navbar-container {
+  background-color: #213830 !important;
+  height: 100%;
+  width: 12%; // was 12%
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 30px;
+  background-color: #bbb3b3;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+.navbar-unordered-list {
+  // border: solid 1px black;
+  padding: 0;
+  text-decoration: none;
+  list-style-type: none;
+
+}
+.navbar-list-item {
+  // border: solid 1px rgb(53, 164, 136);
+  display: inline;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.navbar-button {
+  border: none;
+  justify-content: center;
+  align-items: center;
+  width: 147px;
+  height: 39px;
+  background-color: #213830;
+  color: #f69ca6;
+  text-decoration: none;
+  display: flex;
+  font-size: x-large;
+  margin-bottom: 30px;
+  margin: 0 auto 8px auto;
+  &:hover {
+    box-shadow: 0px 0px 6px 2px rgba(0, 0, 0, 0.25);
+    transition-duration: 0.4s;
+  }
+}
+
+.rounded-button {
+  border-radius: 30px;
+}
+
+
+// side bar malarky
+
+.openbtn {
+  font-size: 20px;
+  cursor: pointer;
+  background-color: #111;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+}
+
+.openbtn:hover {
+  background-color: #444;
+}
+
+.closebtn {
+  font-size: large;
+}
+
+
+.flex {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.navbar-bottom {
+  position: relative;
+}
+
+
+.sign-up, .log-in, .log-out {
+  background-color: #213830;
+  color: #f69ca6;
+}
+
+#main {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+}
+
+.vinyl-button {
+  width: 50px;
+  height: 50px;
+  padding: 0;
+  border-radius: 50%;
+}
+
+
+
+
+
+
+
+
+
+div.na

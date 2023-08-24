@@ -1,64 +1,55 @@
-<div class="navbar-container" id="mySidebar">
+<div class="navbar-container left-12" id="mySidebar" data-controller="toggle">
 <%# take line out if not working %>
-<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
   <% if user_signed_in? %>
-  <div class="flex">
+  <div class="navbar-container-children">
     <ul class="navbar-unordered-list">
-      <div class="navbar-top">
-        <li class="navbar-list-item">
-          <button class="navbar-button rounded-button"><%= link_to "Home", vinyls_path, class: "nav-link" %></button>
-        </li>
-        <li class="navbar-list-item">
-          <button class="navbar-button rounded-button"><%= link_to "Bookings", dashboard_path, class: "nav-link" %></button>
-        </li>
-        <li class="navbar-list-item">
-          <button class="navbar-button rounded-button"><%= link_to "My Vinyls", vinyldashboard_path, class: "nav-link" %></button>
-        </li>
-      </div>
-      <div class="navbar-bottom" style="top: 80%;">
-        <li class="navbar-list-item">
-          <button class="navbar-button rounded-button log-out"><%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %></button>
-        </li>
-      </div>
+      <%# Home Link %>
+      <li class="navbar-list-item">
+        <button class="navbar-button top-of-page">
+          <%= link_to "Home", vinyls_path, class: "nav-link" %>
+        </button>
+      </li>
+      <%# Dashboard Link %>
+      <li class="navbar-list-item">
+        <button class="navbar-button">
+          <%= link_to "Dashboard", dashboard_path, class: "nav-link" %>
+        </button>
+      </li>
     </ul>
   </div>
+  <%# Vinyl overflow button %>
+  <div class="navbar-container-children">
+    <div class="vinyl-div closebtn" data-action="click->toggle#openNav"></div>
+  </div>
+  <%# Log Out Link %>
+  <div class="navbar-container-children bottom-of-page">
+    <button class="navbar-button log-out">
+      <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
+    </button>
+  </div>
   <% else %>
-  <div class="flex">
+  <div class="navbar-container-children">
     <ul class="navbar-unordered-list">
       <li class="navbar-list-item">
-        <button class="navbar-button rounded-button"><%= link_to "Home", vinyls_path, class: "nav-link" %></button>
+        <button class="navbar-button top-of-page">
+          <%= link_to "Home", vinyls_path, class: "nav-link" %>
+        </button>
       </li>
+    </ul>
+  </div>
+  <%# Vinyl overflow button %>
+  <div class="navbar-container-children">
+    <div class="vinyl-div closebtn" data-action="click->toggle#openNav"></div>
+  </div>
+  <div class="navbar-container-children">
+    <ul class="navbar-unordered-list">
+      <li class="navbar-list-item" id="navbar-bottom-login">
+        <button class="navbar-button log-in"><%= link_to "Login", new_user_session_path, class: "nav-link" %></button>
       </li>
-        <li class="navbar-list-item">
-          <button class="navbar-button rounded-button"><%= link_to "Bookings", dashboard_path, class: "nav-link" %></button>
-        </li>
-        <li class="navbar-list-item">
-          <button class="navbar-button rounded-button"><%= link_to "My Vinyls", vinyldashboard_path, class: "nav-link" %></button>
-        </li>
-      <div class="navbar-bottom" style="top: 75%">
-        <li class="nav-item" id="navbar-bottom-login">
-          <button class="navbar-button rounded-button log-in"><%= link_to "Login", new_user_session_path, class: "nav-link" %></button>
-        </li>
-        <li class="nav-item" id="navbar-bottom-login">
-          <button class="navbar-button rounded-button sign-up"><%= link_to "Sign Up", new_user_session_path, class: "nav-link" %></button>
-        </li>
-      </div>
+      <li class="navbar-list-item" id="navbar-bottom-login">
+        <button class="navbar-button sign-up"><%= link_to "Sign Up", new_user_session_path, class: "nav-link" %></button>
+      </li>
     </ul>
   </div>
   <% end %>
 </div>
-<div id="main">
-  <button class="openbtn" onclick="openNav()">&#9776; Open Sidebar</button>
-</div>
-
-<script>
-function openNav() {
-  document.getElementById("mySidebar").style.width = "12%";
-  document.getElementById("main").style.marginLeft = "12%";
-}
-
-function closeNav() {
-  document.getElementById("mySidebar").style.width = "0";
-  document.getElementById("main").style.marginLeft= "0";
-}
-</script>
