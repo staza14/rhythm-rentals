@@ -9,7 +9,9 @@
           <%= image_tag  booking.vinyl.cover_image, class:"index-image"%>
           <h5 class="card-title py-2"><%= booking.vinyl.album_title %></h5>
           <h6 class="card-title py-2"><%= booking.begin_date%> to <%= booking.end_date %></h6>
-          <p><%= link_to "🗑️", booking_path(booking), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></p>
-        </div>
+          <%= link_to booking_path(booking), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
+            <%= image_tag(("recycle-bin.png"), class:"icon")%>
+            <% end %>
+         </div>
       </div>
     <% end %>

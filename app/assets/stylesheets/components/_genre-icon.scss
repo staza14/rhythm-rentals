@@ -1,0 +1,26 @@
+.genre-bar{
+justify-content:space-evenly;
+}
+
+.genre-icon{
+  padding: 5px;
+  transition: all .5s ease;
+  color: black;
+
+  .link{
+    text-decoration: none;
+    font-family: 'Lora', serif;
+    color: black;
+  }
+}
+
+.genre-icon:hover {
+  transform: scale(1.5);
+}
+
+.icon{
+  height: 40px;
+  width: 40px;
+  object-fit:cover;
+  object-position: center;
+}

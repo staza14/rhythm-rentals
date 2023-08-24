@@ -2,7 +2,11 @@ class VinylsController < ApplicationController
   skip_before_action :authenticate_user!, only: :index
 
 def index
-  @vinyls = Vinyl.all
+  if params[:query].present?
+    @vinyls = Vinyl.search_by_album_title_and_artists_and_songs(params[:query])
+  else
+    @vinyls = Vinyl.all
+  end
 end
 
 def show
@@ -18,7 +22,7 @@ def show
       marker_html: render_to_string(partial: "marker")
     }
     end
-  end
+end
 
 def new
   @vinyl = Vinyl.new
@@ -58,9 +62,46 @@ def destroy
     end
 end
 
-def rock
-  @vinyls = Vinyl.where(genre: "rock")
+def pop
+  @vinyls = Vinyl.where(genre: "Pop")
 end
+
+def classical
+  @vinyls = Vinyl.where(genre: "Classical")
+end
+
+def jazz
+  @vinyls = Vinyl.where(genre: "Jazz")
+end
+
+def rock
+  @vinyls = Vinyl.where(genre: "Rock")
+end
+
+def afrobeat
+  @vinyls = Vinyl.where(genre: "Afrobeat")
+end
+
+def reggae
+  @vinyls = Vinyl.where(genre: "Reggae")
+end
+
+def hiphop
+  @vinyls = Vinyl.where(genre: "Hiphop")
+end
+
+def country
+  @vinyls = Vinyl.where(genre: "Country")
+end
+
+def metal
+  @vinyls = Vinyl.where(genre: "Metal")
+end
+
+def electronic
+  @vinyls = Vinyl.where(genre: "Electronic")
+end
+
 
   private
 
