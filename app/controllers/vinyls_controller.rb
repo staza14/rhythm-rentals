@@ -13,7 +13,7 @@ def show
   @vinyl = Vinyl.find(params[:id])
   @booking = Booking.new
 
-  @vinyls= Vinyl.all
+  @vinyls = Vinyl.where(id: params[:id])
   # The `geocoded` scope filters only vinyl with coordinates
   @markers = @vinyls.geocoded.map do |vinyl|
     {
@@ -22,6 +22,7 @@ def show
       marker_html: render_to_string(partial: "marker")
     }
     end
+# raise
 end
 
 def new

@@ -34,7 +34,7 @@ i = 1
     release_year: Faker::Date.between(from: 2.days.ago, to: Date.today),
     length: (45..95).to_a.sample,
     songs: songs.join(","),
-    pickup_adress: Faker::Address.full_address,
+    pickup_adress: Faker::Address.city,
     price: (5..15).to_a.sample,
     user_id: User.all.sample.id
   )
