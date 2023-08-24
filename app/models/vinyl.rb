@@ -12,4 +12,12 @@ class Vinyl < ApplicationRecord
   # validates :release_year, presence: true
   validates :genre, presence: true
   validates :songs, presence: true
+
+  include PgSearch::Model
+  pg_search_scope :search_by_album_title_and_artists_and_songs,
+  against: [ :album_title, :songs, :artist],
+  using: {
+    tsearch: { prefix: true }
+  }
+
 end

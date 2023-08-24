@@ -29,13 +29,13 @@ i = 1
    (8..16).to_a.sample.times{ songs << Faker::Book.title }
   album = Vinyl.new(
     album_title: Faker::Music.album,
-    genre: Faker::Music.genre,
+    genre: ["Pop","Classical", "Jazz","Rock","Afrobeat","Reggae","Hiphop", "Country", "Metal","Electronic"].sample,
     artist: Faker::Music.band,
     release_year: Faker::Date.between(from: 2.days.ago, to: Date.today),
     length: (45..95).to_a.sample,
     songs: songs.join(","),
     pickup_adress: Faker::Address.full_address,
-    # cover_image: "covers/cover#{i}.png",
+    price: (5..15).to_a.sample,
     user_id: User.all.sample.id
   )
   file = File.open("app/assets/images/covers/cover#{i}.png")

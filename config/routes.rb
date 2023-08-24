@@ -8,9 +8,22 @@ Rails.application.routes.draw do
   # resources :users, only: [:show]
 
   resources :vinyls do
+    collection do
+      get :pop
+      get :classical
+      get :jazz
+      get :rock
+      get :afrobeat
+      get :reggae
+      get :hiphop
+      get :country
+      get :metal
+      get :electronic
+    end
     resources :bookings, except: [:destroy]
   end
   resources :bookings, only: [:destroy]
 
   get '/dashboard', to: 'users#dashboard'
+  get '/vinyldashboard', to: 'users#vinyldashboard'
 end

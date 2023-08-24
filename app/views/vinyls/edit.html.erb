@@ -1,4 +1,4 @@
-<h1>Edit the add</h1>
+<h1>Edit <%= @vinyl.album_title %>'s add</h1>
 
 <div class="container">
 <%= simple_form_for @vinyl do |f| %>
@@ -9,9 +9,9 @@
   <%= f.input :genre %>
   <%= f.input :songs %>
   <%= f.input :pickup_adress ,
-  input_html: {data: {pickup_adress_autocomplete_target: "pickup_adress"}},
-  wrapper_html: {data: {controller: "pickup-adress-autocomplete",
-  address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}} %>
+  input_html: {data: {pickup_address_autocomplete_target: "address"}, class: "d-none"},
+  wrapper_html: {data: {controller: "pickup-address-autocomplete",
+  pickup_address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}} %>
   <%= f.input :price %>
   <%= f.submit %>
 <% end %>
