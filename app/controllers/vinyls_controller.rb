@@ -2,7 +2,11 @@ class VinylsController < ApplicationController
   skip_before_action :authenticate_user!, only: :index
 
 def index
-  @vinyls = Vinyl.all
+  if params[:query].present?
+    @vinyls = Vinyl.search_by_album_title_and_artists_and_songs(params[:query])
+  else
+    @vinyls = Vinyl.all
+  end
 end
 
 def show
@@ -18,7 +22,7 @@ def show
       marker_html: render_to_string(partial: "marker")
     }
     end
-  end
+end
 
 def new
   @vinyl = Vinyl.new
