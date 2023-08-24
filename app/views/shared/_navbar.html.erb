@@ -1,8 +1,8 @@
-<div class="navbar-container left-12" id="mySidebar">
+<div class="navbar-container left-12" id="mySidebar" data-controller="toggle">
 <%# take line out if not working %>
   <% if user_signed_in? %>
-  <div class="navbar-container-children navbar-button navbar-container-closed">
-    <ul class="navbar-unordered-list navbar-container-closed">
+  <div class="navbar-container-children">
+    <ul class="navbar-unordered-list">
       <%# Home Link %>
       <li class="navbar-list-item">
         <button class="navbar-button top-of-page">
@@ -11,29 +11,27 @@
       </li>
       <%# Dashboard Link %>
       <li class="navbar-list-item">
-        <button class="navbar-button rounded-button">
+        <button class="navbar-button">
           <%= link_to "Dashboard", dashboard_path, class: "nav-link" %>
         </button>
       </li>
     </ul>
   </div>
   <%# Vinyl overflow button %>
-  <div class="navbar-container-children navbar-container-closed">
-    <div class="vinyl-div closebtn navbar-container-closed" onclick="openNav()">
-      <div class="vinyl-image"></div>
-    </div>
+  <div class="navbar-container-children">
+    <div class="vinyl-div closebtn" data-action="click->toggle#openNav"></div>
   </div>
   <%# Log Out Link %>
-  <div class="navbar-container-children bottom-of-page navbar-container-closed">
-    <button class="navbar-button rounded-button log-out">
+  <div class="navbar-container-children bottom-of-page">
+    <button class="navbar-button log-out">
       <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
     </button>
   </div>
   <% else %>
-  <div class="navbar-container-children navbar-container-closed">
+  <div class="navbar-container-children">
     <ul class="navbar-unordered-list">
       <li class="navbar-list-item">
-        <button class="navbar-button rounded-button top-of-page">
+        <button class="navbar-button top-of-page">
           <%= link_to "Home", vinyls_path, class: "nav-link" %>
         </button>
       </li>
@@ -41,26 +39,17 @@
   </div>
   <%# Vinyl overflow button %>
   <div class="navbar-container-children">
-    <div class="vinyl-div closebtn" onclick="openNav()">
-      <div class="vinyl-image"></div>
-    </div>
+    <div class="vinyl-div closebtn" data-action="click->toggle#openNav"></div>
   </div>
-  <div class="navbar-container-children navbar-container-closed">
+  <div class="navbar-container-children">
     <ul class="navbar-unordered-list">
       <li class="navbar-list-item" id="navbar-bottom-login">
-        <button class="navbar-button rounded-button log-in"><%= link_to "Login", new_user_session_path, class: "nav-link" %></button>
+        <button class="navbar-button log-in"><%= link_to "Login", new_user_session_path, class: "nav-link" %></button>
       </li>
       <li class="navbar-list-item" id="navbar-bottom-login">
-        <button class="navbar-button rounded-button sign-up"><%= link_to "Sign Up", new_user_session_path, class: "nav-link" %></button>
+        <button class="navbar-button sign-up"><%= link_to "Sign Up", new_user_session_path, class: "nav-link" %></button>
       </li>
     </ul>
   </div>
   <% end %>
 </div>
-
-<script>
-  function openNav() {
-    navbar = document.getElementById("mySidebar")
-    navbar.classList.toggle("left-12")
-  }
-</script>
