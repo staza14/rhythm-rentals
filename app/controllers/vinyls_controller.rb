@@ -12,7 +12,6 @@ end
 def show
   @vinyl = Vinyl.find(params[:id])
   @booking = Booking.new
-
   @vinyls = Vinyl.where(id: params[:id])
   # The `geocoded` scope filters only vinyl with coordinates
   @markers = @vinyls.geocoded.map do |vinyl|

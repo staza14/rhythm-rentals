@@ -13,7 +13,7 @@
         <p>  runs for <%=@vinyl.length%> minutes • </p>
         <p>  released in <%=@vinyl.release_year.year%></p>
       </div>
-      <div class="rounded-3 m-5" style="width: 400px; height: 300px;"
+      <div class="rounded-3 m-3" style="width: 400px; height: 300px;"
         data-controller="map"
         data-map-markers-value="<%= @markers.to_json %>"
         data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
@@ -35,8 +35,8 @@
   </div>
 
   <div data-controller="toggle" class=" container booking">
-    <button data-action="click->toggle#fire" class="booking-button p-3"><strong>Book this Vinyl</strong></button>
-      <div data-toggle-target="togglableElement", class="d-none">
+    <button data-action="click->toggle#fire" class="booking-button p-3 m-5"><strong>Book this Vinyl</strong></button>
+      <div data-toggle-target="togglableElement", class="d-none mx-5">
         <%= simple_form_for([@vinyl, @booking])  do |f| %>
           <%= f.input :booking_date,
           as: :string,
