@@ -19,4 +19,5 @@ class Vinyl < ApplicationRecord
   using: {
     tsearch: { prefix: true }
   }
+
 end
