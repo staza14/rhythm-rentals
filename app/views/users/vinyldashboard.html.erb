@@ -10,15 +10,18 @@
               <%= link_to vinyl_path(vinyl), class: "link" do %>
               <%= cl_image_tag  vinyl.cover_image.key, class:"index-image"%>
               <% end %>
-              <h5 class="card-title py-2 px-3"><%= vinyl.album_title %></h5>
-              <p class="card-text px-3"> By: <%= vinyl.artist %></p>
-              <p class="card-text px-3 pb-2">available from - <strong><%= vinyl.user.first_name %></strong></p>
-              <p><%= link_to "Update listing", edit_vinyl_path(vinyl)%></p>
-              <%= link_to vinyl_path(vinyl), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
-              <%= image_tag(("recycle-bin.png"), class:"icon")%>
-              <% end %>
+               <div class="d-flex justify-content-between">
+                <div>
+                <h5 class="card-title py-2 px-3"><%= vinyl.album_title %></h5>
+                <p class="card-text px-3"> By: <%= vinyl.artist %></p>
+                <p class='px-3'><%= link_to "Update listing", edit_vinyl_path(vinyl), class:"text-decoration-none"%></p>
+                </div>
+                <%= link_to vinyl_path(vinyl), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
+                <%= image_tag(("recycle-bin.png"), class:"icon mt-2")%>
+                <% end %>
+               </div>
             </div>
-
           </div>
+        </div>
         <% end %>
     </div>

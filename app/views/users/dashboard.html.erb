@@ -7,11 +7,15 @@
       <div class="product-card col-4 px-0 m-5">
         <div class= "card-body">
           <%= image_tag  booking.vinyl.cover_image, class:"index-image"%>
+          <div class="d-flex justify-content-between">
+          <div>
           <h5 class="card-title py-2"><%= booking.vinyl.album_title %></h5>
           <h6 class="card-title py-2"><%= booking.begin_date%> to <%= booking.end_date %></h6>
-          <%= link_to booking_path(booking), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
-            <%= image_tag(("recycle-bin.png"), class:"icon")%>
+          </div>
+            <%= link_to booking_path(booking), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
+            <%= image_tag(("recycle-bin.png"), class:"icon mt-2")%>
             <% end %>
-         </div>
+          </div>
+        </div>
       </div>
     <% end %>

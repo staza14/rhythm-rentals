@@ -14,11 +14,20 @@
 }
 
 .song-info{
-  background-color: #3D47EC;
-  border-radius: 20px;
-  color: white;
-  border: none;
-  box-shadow: 9px 13px 40px 20px rgba(0,0,0,0.1);
-  width: fit-content;
+
   margin: auto;
+}
+
+.map-with-info{
+  width: 400px;
+  height: 400px;
+}
+
+.tracks{
+  width: 400px;
+  box-shadow: 9px 13px 40px 20px rgba(0,0,0,0.1);
+}
+.booking{
+  width: 400px;
+  margin:0;
 }
