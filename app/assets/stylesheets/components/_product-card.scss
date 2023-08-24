@@ -1,6 +1,5 @@
 .product-card {
   width: 300px;
-  box-shadow: 9px 13px 40px 20px rgba(0,0,0,0.1);
   border-radius: 5px;
   .index-image {
     width: 100%;
@@ -27,4 +26,19 @@
 .wrapper:hover .slide-out-record {
 left: 80px;
 
+}
+
+.product-card h5{
+  font-family: 'Lora', serif;
+  font-weight: bold;
+}
+
+.product-card h6{
+  font-family: 'Lora', serif;
+  font-weight: bold;
+}
+
+.product-card p{
+  font-family: 'Lora', serif;
+  font-weight:lighter;
 }
