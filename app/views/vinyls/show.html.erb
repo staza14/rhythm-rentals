@@ -1,5 +1,5 @@
 
-<div class="container justify-content-center">
+<div class="show-page container justify-content-center">
 
   <h1 class="text-center"><%= @vinyl.album_title %></h1>
 
@@ -22,49 +22,28 @@
   </div>
 
 
- <div class="d-flex">
-    <div class="tracks my-3 mx-5 p-3">
-      <h4>Track list</h4>
-      <ul>
-        <% track_list = @vinyl.songs.split(',') %>
-        <% track_list.each do |track|  %>
-          <li> <%= track %></li>
-        <% end  %>
-      </ul>
-    </div>
+  <div class="d-flex">
 
-    <div data-controller="toggle" class=" container booking">
-      <button data-action="click->toggle#fire" class="booking-button p-3 m-5"><strong>Book this Vinyl</strong></button>
-        <div data-toggle-target="togglableElement", class="d-none mx-5">
-          <%= simple_form_for([@vinyl, @booking])  do |f| %>
-            <%= f.input :booking_date,
-            as: :string,
-            input_html: { data: { controller: "datepicker" } }%>
-            <%= f.submit %>
-          <% end %>
-        </div>
-    </div>
+  <div class="tracks my-3 mx-5 p-3">
+    <h4>Track list</h4>
+    <ul>
+      <% track_list = @vinyl.songs.split(',') %>
+      <% track_list.each do |track|  %>
+        <li> <%= track %></li>
+      <% end  %>
+    </ul>
   </div>
 
-  <div class="seperator my-5" ></div>
-
-  <h3>Others are enjoying:</h3>
-  <div class="row justify-content-center">
-    <% @suggested_vinyls.each do |vinyl| %>
-    <div class="product-card col-3 px-0 m-2">
-      <div class= "card-body">
-          <%= link_to vinyl_path(vinyl), class: "link" do %>
-          <%= cl_image_tag  vinyl.cover_image.key, class:"index-image"%>
-          <% end %>
-
-          <h5 class="card-title pt-2 px-3"><%= vinyl.album_title %></h5>
-          <p class="card-text px-3 pt-1 pb-2 "> <em>By: <%= vinyl.artist %></em></p>
-          <p class="card-text px-3 mb-0"><em>Available from - <strong><%= vinyl.user.first_name %></strong></em></p>
-          <h6 class="card-text px-3 pb-1"> <%= vinyl.price %> £/day</h6>
-       </div>
+  <div data-controller="toggle" class=" container booking">
+    <button data-action="click->toggle#fire" class="booking-button p-3 m-5"><strong>Book this Vinyl</strong></button>
+      <div data-toggle-target="togglableElement", class="d-none mx-5">
+        <%= simple_form_for([@vinyl, @booking])  do |f| %>
+          <%= f.input :booking_date,
+          as: :string,
+          input_html: { data: { controller: "datepicker" } }%>
+          <%= f.submit %>
+        <% end %>
       </div>
-          <%end%>
-    </div>
   </div>
 
 </div>
