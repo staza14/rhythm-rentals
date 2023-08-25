@@ -1,21 +1,41 @@
-<div class= "container">
-  <h1 class="d-flex justify-content-center">Hi <%= current_user.first_name %>,</h1>
-  <div>
-<div class="row justify-content-center">
-<h2 class="d-flex justify-content-center">My Bookings</h2>
-    <% @bookings.each do |booking| %>
-      <div class="product-card col-4 px-0 m-5">
-        <div class= "card-body">
-          <%= image_tag  booking.vinyl.cover_image, class:"index-image"%>
-          <div class="d-flex justify-content-between">
-          <div>
-          <h5 class="card-title py-2"><%= booking.vinyl.album_title %></h5>
-          <h6 class="card-title py-2"><%= booking.begin_date%> to <%= booking.end_date %></h6>
-          </div>
-            <%= link_to booking_path(booking), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
-            <%= image_tag(("recycle-bin.png"), class:"icon mt-2")%>
-            <% end %>
+  <div class= "container">
+    <h1 class="d-flex justify-content-center">Hi <%= current_user.first_name %>,</h1>
+    <div class="row justify-content-center">
+      <h2 class="d-flex justify-content-center">My Bookings</h2>
+      <% @bookings.each do |booking| %>
+        <div class="product-card col-4 px-0 m-5">
+          <div class= "card-body">
+            <%= image_tag  booking.vinyl.cover_image, class:"index-image"%>
+            <div class="d-flex justify-content-between">
+              <div>
+                <h5 class="card-title py-2"><%= booking.vinyl.album_title %></h5>
+                <h6 class="card-title py-2"><%= booking.begin_date%> to <%= booking.end_date %></h6>
+              </div>
+              <%= link_to booking_path(booking), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
+              <%= image_tag(("recycle-bin.png"), class:"icon mt-2")%>
+              <% end %>
+            </div>
           </div>
         </div>
+      <% end %>
+    </div>
+    <div class="seperator my-5" ></div>
+      <h3>Others have recently booked:</h3>
+      <div class="row justify-content-center">
+    <% @suggested_vinyls.each do |vinyl| %>
+    <div class="product-card col-3 px-0 m-2">
+      <div class= "card-body">
+          <%= link_to vinyl_path(vinyl), class: "link" do %>
+          <%= cl_image_tag  vinyl.cover_image.key, class:"index-image"%>
+          <% end %>
+
+          <h5 class="card-title pt-2 px-3"><%= vinyl.album_title %></h5>
+          <p class="card-text px-3 pt-1 pb-2 "> <em>By: <%= vinyl.artist %></em></p>
+          <p class="card-text px-3 mb-0"><em>Available from - <strong><%= vinyl.user.first_name %></strong></em></p>
+          <h6 class="card-text px-3 pb-1"> <%= vinyl.price %> £/day</h6>
+       </div>
       </div>
-    <% end %>
+          <%end%>
+    </div>
+  </div>
+  </div>
