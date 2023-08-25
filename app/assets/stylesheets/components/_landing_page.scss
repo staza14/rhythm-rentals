@@ -1,10 +1,11 @@
 
 .landing-page{
-  background-image: url("landing-page.png");
+  background-color: rgb(144, 144, 144);
   background-size: cover;
   height: 800px;
   position: relative;
-
+  display: flex;
+  justify-content: center;
 }
 .landing-page h1{
   font-family: 'Changa One', cursive;
@@ -12,4 +13,21 @@
   position: absolute;
   bottom : 50px;
   right: 20px;
+}
+
+.vinyl-background {
+  // background-image: url('rhythm-records-vinyl.png');
+  // background-size: auto;
+  // background-repeat: no-repeat;
+  // position: absolute;
+  height: 150%;
+  position: absolute;
+  top: -610px;
+
+  // width: 100%;
+  // height: 100%;
+
+  transform: rotate(180deg);
+  transition-duration: 5s;
+  transition-timing-function: ease-out;
 }
