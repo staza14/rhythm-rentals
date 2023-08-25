@@ -8,8 +8,8 @@ window.Stimulus   = application
 
 export { application }
 
-// excittting!!!!!!!!!!
 
+// Navbar Scroll
 window.onscroll = function () {
   scrollRotate();
 };
@@ -18,3 +18,4 @@ function scrollRotate() {
   let image = document.getElementById("reload");
   image.style.transform = "rotate(" + window.pageYOffset/2 + "deg)";
 }
+// navbar scroll end

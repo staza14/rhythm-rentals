@@ -1,6 +1,21 @@
 <div class="container landing-page text-center">
   <%# <div class="vinyl-background"></div> %>
   <%= image_tag "rhythm-records-vinyl.png", class: "vinyl-background" %>
-  <%# <h1> <em>Don't let good music stand by</em></h1> %>
-
+  <%= image_tag "click-me.png", class: "click-me" %>
+  <div class="landing-page-text">
+    <h1 class='catchphrase'>DON'T LET GOOD MUSIC STAND BY</h1>
+    <h3 class='top-picks'>Top Picks</h3>
+  </div>
+  <%# Album Photos %>
+  <div class="row justify-content-center" style='margin-bottom: 12px;'>
+    <% @suggested_vinyls.each do |vinyl| %>
+      <div class="product-card col-3 px-0 m-2">
+        <div class= "card-body">
+          <%= link_to vinyl_path(vinyl), class: "link" do %>
+            <%= cl_image_tag  vinyl.cover_image.key, class:"index-image"%>
+          <% end %>
+        </div>
+      </div>
+    <%end%>
+  </div>
 </div>
